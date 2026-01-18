@@ -1,0 +1,192 @@
+<!-- Preflight: passed -->
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- ========= SEO: basic ========= -->
+  <title>X検索コマンドメーカー｜from・期間・いいね/RT・画像/動画を1分で生成</title>
+  <meta name="description" content="X（旧Twitter）の検索コマンド（from/since/until/min_faves/min_retweets/filter:images/videos）を、フォーム入力だけで自動生成。コピーしてそのままX検索へ。サーバ送信なし・無料。" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="./" />
+
+  <!-- favicon -->
+  <link rel="icon" href="./favicon.ico">
+  <link rel="icon" type="image/png" href="./favicon.png">
+
+  <!-- ========= OGP / Twitter Card ========= -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:title" content="X検索コマンドメーカー｜from・期間・いいね/RT・画像/動画を1分で生成" />
+  <meta property="og:description" content="X（旧Twitter）の検索オペレーターをフォーム入力だけで自動生成。コピー→検索が一瞬。" />
+  <!-- 画像が無い場合でも動きます。用意できたら og.png を置くと強い -->
+  <meta property="og:image" content="./favicon.png" />
+  <meta property="og:image:alt" content="X検索コマンドメーカー" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="X検索コマンドメーカー（旧Twitter）" />
+  <meta name="twitter:description" content="from/期間/いいね/RT/画像/動画の検索コマンドを1分で生成。" />
+  <meta name="twitter:image" content="./favicon.png" />
+
+  <!-- ========= Perf ========= -->
+  <meta name="theme-color" content="#2563eb" />
+
+  <!-- Google AdSense -->
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9358484781258387"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="./style.css" />
+
+  <!-- ========= Structured Data (JSON-LD) ========= -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"X検索コマンドメーカー",
+    "applicationCategory":"UtilitiesApplication",
+    "operatingSystem":"Web",
+    "description":"X（旧Twitter）の検索コマンド（from/since/until/min_faves/min_retweets/filter:images/videos）をフォーム入力だけで自動生成する無料ツール。",
+    "inLanguage":"ja",
+    "isAccessibleForFree":true
+  }
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="header">
+      <div>
+        <h1>X検索コマンドメーカー</h1>
+        <p class="sub">X（旧Twitter）の検索オペレーターを、フォーム入力だけで自動生成。</p>
+      </div>
+      <div class="meta">
+        <span class="pill" id="pillLen">文字数: 0</span>
+      </div>
+    </header>
+
+    <!-- SEO: 1段だけ説明（ユーザーにも役立つ範囲で） -->
+    <section class="card" style="margin-bottom:14px">
+      <h2>できること</h2>
+      <div class="help" style="margin-top:0">
+        <b>from</b>（特定アカウント）・<b>期間（since/until）</b>・<b>いいね/RT</b>・<b>画像/動画</b>などの検索条件を、
+        <b>検索ワード + 日付</b>で直感的に組み立てて、<b>コピー or X検索</b>できます。<br>
+        ※ 入力内容はサーバに送信されません（ブラウザ内で生成するだけ）。
+      </div>
+    </section>
+
+    <main class="main">
+      <!-- 入力 -->
+      <section class="card">
+        <h2>入力</h2>
+
+        <div class="field">
+          <label for="q">検索ワード（必須）</label>
+          <input id="q" type="text"
+            placeholder='例: "新発売" OR キャンペーン / 求人 / iPhone 不具合' />
+          <div class="help">
+            <code>"完全一致"</code> / <code>OR</code> / <code>()</code> はそのまま使えます。
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="fromId">アカウント指定（from）</label>
+          <input id="fromId" type="text" placeholder="例: Google（@不要）" />
+        </div>
+
+        <div class="field">
+          <label for="exclude">除外ワード</label>
+          <input id="exclude" type="text" placeholder="例: PR 広告（スペース/カンマ区切り）" />
+        </div>
+
+        <div class="grid2">
+          <div class="field">
+            <label for="startDate">開始日</label>
+            <input id="startDate" type="date" />
+          </div>
+          <div class="field">
+            <label for="endDate">終了日</label>
+            <input id="endDate" type="date" />
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="check">
+            <input id="excludePR" type="checkbox" />
+            PR・副業・勧誘をまとめて除外する
+          </label>
+        </div>
+
+        <!-- 詳細 -->
+        <details class="details" id="advancedBox">
+          <summary>詳細条件（必要な人だけ）</summary>
+          <div class="detailBody">
+
+            <div class="grid2">
+              <div class="field">
+                <label for="minFav">いいね数（最小）</label>
+                <input id="minFav" type="number" min="0" placeholder="例: 50" />
+              </div>
+              <div class="field">
+                <label for="minRt">RT数（最小）</label>
+                <input id="minRt" type="number" min="0" placeholder="例: 10" />
+              </div>
+            </div>
+
+            <div class="row">
+              <label class="check subtle">
+                <input id="onlyVideos" type="checkbox" />
+                動画付きのみ（filter:videos）
+              </label>
+            </div>
+
+            <div class="row">
+              <label class="check subtle">
+                <input id="onlyImages" type="checkbox" />
+                画像付きのみ（filter:images）
+              </label>
+            </div>
+
+            <div class="help">
+              ※ よく使われるのは <b>from / 期間 / いいね・RT</b> だけです。
+            </div>
+          </div>
+        </details>
+
+        <div class="actions">
+          <button class="btn primary" id="btnCopy" type="button">コピー</button>
+          <button class="btn" id="btnSearch" type="button">Xで検索</button>
+          <button class="btn ghost" id="btnReset" type="button">リセット</button>
+        </div>
+
+        <div class="toast" id="toast"></div>
+      </section>
+
+      <!-- 出力 -->
+      <section class="card">
+        <h2>生成された検索クエリ</h2>
+        <div class="out" id="out">(ここに表示されます)</div>
+
+        <!-- SEO: FAQ（短く・役立つ・過剰に長くしない） -->
+        <div style="margin-top:12px">
+          <h2>よくある使い方</h2>
+          <div class="help">
+            <ul style="margin:8px 0 0 18px; line-height:1.7">
+              <li><b>特定アカウントを期間で絞る：</b> from + 開始日/終了日</li>
+              <li><b>反応が多い投稿だけ：</b> いいね最小 / RT最小</li>
+              <li><b>画像/動画だけ：</b> 「画像付きのみ」または「動画付きのみ」</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>※ サーバ送信なし（完全ローカル）</span>
+      <span class="kbd">Ctrl + Enter</span>
+    </footer>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
