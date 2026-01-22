@@ -52,8 +52,8 @@
 
   function render(){
     const r=build();
-    $("out").textContent=r.q||"(ここに表示されます)";
-    $("pillLen").textContent=`文字数: ${r.len}`;
+    $("out").textContent = r.q || "(The generated query will appear here)";
+    $("pillLen").textContent = `Length: ${r.len}`;
   }
 
   function copy(){
