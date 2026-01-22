@@ -1,13 +1,13 @@
 <!-- Preflight: passed -->
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <!-- ========= SEO: basic ========= -->
-  <title>X(旧Twitter)検索コマンドメーカー｜from・期間・いいね/RT・画像/動画を1分で生成</title>
-  <meta name="description" content="X（旧Twitter）の検索コマンド（from/since/until/min_faves/min_retweets/filter:images/videos）を、フォーム入力だけで自動生成。コピーしてそのままX検索へ。サーバ送信なし・無料。" />
+  <title>X Advanced Search Command Generator | Build from/date/likes/RT/media queries fast</title>
+  <meta name="description" content="Generate X (formerly Twitter) advanced search commands (from/since/until/min_faves/min_retweets/filter:images/videos) with simple form inputs. Copy and search instantly. No server, free." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="./" />
 
@@ -17,15 +17,15 @@
 
   <!-- ========= OGP / Twitter Card ========= -->
   <meta property="og:type" content="website" />
-  <meta property="og:locale" content="ja_JP" />
-  <meta property="og:title" content="X検索コマンドメーカー｜from・期間・いいね/RT・画像/動画を1分で生成" />
-  <meta property="og:description" content="X（旧Twitter）の検索オペレーターをフォーム入力だけで自動生成。コピー→検索が一瞬。" />
-  <!-- 画像が無い場合でも動きます。用意できたら og.png を置くと強い -->
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="X Advanced Search Command Generator | Build queries in 1 minute" />
+  <meta property="og:description" content="Generate advanced X (Twitter) search operators with form inputs. Copy → search instantly." />
+  <!-- Works even without a dedicated OG image. You can replace with og.png later -->
   <meta property="og:image" content="./favicon.png" />
-  <meta property="og:image:alt" content="（旧Twitter）X検索コマンドメーカー" />
+  <meta property="og:image:alt" content="X Advanced Search Command Generator" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="X検索コマンドメーカー（旧Twitter）" />
-  <meta name="twitter:description" content="from/期間/いいね/RT/画像/動画の検索コマンドを1分で生成。" />
+  <meta name="twitter:title" content="X Advanced Search Command Generator" />
+  <meta name="twitter:description" content="Build from/date/likes/RT/image/video search commands in 1 minute." />
   <meta name="twitter:image" content="./favicon.png" />
 
   <!-- ========= Perf ========= -->
@@ -43,11 +43,11 @@
   {
     "@context":"https://schema.org",
     "@type":"WebApplication",
-    "name":"X（旧Twitter）検索コマンドメーカー",
+    "name":"X Advanced Search Command Generator",
     "applicationCategory":"UtilitiesApplication",
     "operatingSystem":"Web",
-    "description":"X（旧Twitter）の検索コマンド（from/since/until/min_faves/min_retweets/filter:images/videos）をフォーム入力だけで自動生成する無料ツール。",
-    "inLanguage":"ja",
+    "description":"A free tool to generate advanced X (formerly Twitter) search commands (from/since/until/min_faves/min_retweets/filter:images/videos) with simple form inputs.",
+    "inLanguage":"en",
     "isAccessibleForFree":true
   }
   </script>
@@ -57,55 +57,55 @@
   <div class="wrap">
     <header class="header">
       <div>
-        <h1>X（旧Twitter）検索コマンドメーカー</h1>
-        <p class="sub">X（旧Twitter）の検索オペレーターを、フォーム入力だけで自動生成。</p>
+        <h1>X Advanced Search Command Generator</h1>
+        <p class="sub">Build advanced X (formerly Twitter) search operators using simple form inputs.</p>
       </div>
       <div class="meta">
-        <span class="pill" id="pillLen">文字数: 0</span>
+        <span class="pill" id="pillLen">Length: 0</span>
       </div>
     </header>
 
-    <!-- SEO: 1段だけ説明（ユーザーにも役立つ範囲で） -->
+    <!-- Short explanation (useful + SEO-friendly, not too long) -->
     <section class="card" style="margin-bottom:14px">
-      <h2>できること</h2>
+      <h2>What you can do</h2>
       <div class="help" style="margin-top:0">
-        <b>from</b>（特定アカウント）・<b>期間（since/until）</b>・<b>いいね/RT</b>・<b>画像/動画</b>などの検索条件を、
-        <b>検索ワード + 日付</b>で直感的に組み立てて、<b>コピー or X検索</b>できます。<br>
-        ※ 入力内容はサーバに送信されません（ブラウザ内で生成するだけ）。
+        Combine <b>from</b> (account), <b>date range (since/until)</b>, <b>minimum likes/retweets</b>, and <b>images/videos</b> filters.
+        Then <b>copy</b> the command or <b>search on X</b> instantly.<br>
+        Your input is never sent to a server (everything runs locally in your browser).
       </div>
     </section>
 
     <main class="main">
-      <!-- 入力 -->
+      <!-- Input -->
       <section class="card">
-        <h2>入力</h2>
+        <h2>Inputs</h2>
 
         <div class="field">
-          <label for="q">検索ワード（必須）</label>
+          <label for="q">Keyword (required)</label>
           <input id="q" type="text"
-            placeholder='例: "新発売" OR キャンペーン / 求人 / iPhone 不具合' />
+            placeholder='e.g. "new release" OR campaign / hiring / iPhone bug' />
           <div class="help">
-            <code>"完全一致"</code> / <code>OR</code> / <code>()</code> はそのまま使えます。
+            You can use <code>"exact phrase"</code>, <code>OR</code>, and <code>()</code> as-is.
           </div>
         </div>
 
         <div class="field">
-          <label for="fromId">アカウント指定（from）</label>
-          <input id="fromId" type="text" placeholder="例: Google（@不要）" />
+          <label for="fromId">Account (from)</label>
+          <input id="fromId" type="text" placeholder="e.g. Google (no @ needed)" />
         </div>
 
         <div class="field">
-          <label for="exclude">除外ワード</label>
-          <input id="exclude" type="text" placeholder="例: PR 広告（スペース/カンマ区切り）" />
+          <label for="exclude">Exclude words</label>
+          <input id="exclude" type="text" placeholder="e.g. ad promo (space/comma separated)" />
         </div>
 
         <div class="grid2">
           <div class="field">
-            <label for="startDate">開始日</label>
+            <label for="startDate">Start date</label>
             <input id="startDate" type="date" />
           </div>
           <div class="field">
-            <label for="endDate">終了日</label>
+            <label for="endDate">End date</label>
             <input id="endDate" type="date" />
           </div>
         </div>
@@ -113,64 +113,64 @@
         <div class="row">
           <label class="check">
             <input id="excludePR" type="checkbox" />
-            PR・副業・勧誘をまとめて除外する
+            Exclude promotions / ads / referrals (bulk)
           </label>
         </div>
 
-        <!-- 詳細 -->
+        <!-- Advanced -->
         <details class="details" id="advancedBox">
-          <summary>詳細条件（必要な人だけ）</summary>
+          <summary>Advanced filters (optional)</summary>
           <div class="detailBody">
 
             <div class="grid2">
               <div class="field">
-                <label for="minFav">いいね数（最小）</label>
-                <input id="minFav" type="number" min="0" placeholder="例: 50" />
+                <label for="minFav">Minimum likes</label>
+                <input id="minFav" type="number" min="0" placeholder="e.g. 50" />
               </div>
               <div class="field">
-                <label for="minRt">RT数（最小）</label>
-                <input id="minRt" type="number" min="0" placeholder="例: 10" />
+                <label for="minRt">Minimum retweets</label>
+                <input id="minRt" type="number" min="0" placeholder="e.g. 10" />
               </div>
             </div>
 
             <div class="row">
               <label class="check subtle">
                 <input id="onlyVideos" type="checkbox" />
-                動画付きのみ（filter:videos）
+                Videos only (filter:videos)
               </label>
             </div>
 
             <div class="row">
               <label class="check subtle">
                 <input id="onlyImages" type="checkbox" />
-                画像付きのみ（filter:images）
+                Images only (filter:images)
               </label>
             </div>
           </div>
         </details>
 
         <div class="actions">
-          <button class="btn primary" id="btnCopy" type="button">コピー</button>
-          <button class="btn" id="btnSearch" type="button">Xで検索</button>
-          <button class="btn ghost" id="btnReset" type="button">リセット</button>
+          <button class="btn primary" id="btnCopy" type="button">Copy</button>
+          <button class="btn" id="btnSearch" type="button">Search on X</button>
+          <button class="btn ghost" id="btnReset" type="button">Reset</button>
         </div>
 
         <div class="toast" id="toast"></div>
       </section>
 
-      <!-- 出力 -->
+      <!-- Output -->
       <section class="card">
-        <h2>生成された検索クエリ</h2>
-        <div class="out" id="out">(ここに表示されます)</div>
+        <h2>Generated search query</h2>
+        <div class="out" id="out">(It will appear here)</div>
 
-        <!-- SEO: FAQ（短く・役立つ・過剰に長くしない） -->
+        <!-- Short FAQ / examples -->
         <div style="margin-top:12px">
-          <h2>よくある使い方</h2>
+          <h2>Common use cases</h2>
           <div class="help">
             <ul style="margin:8px 0 0 18px; line-height:1.7">
-              <li><b>特定アカウントを期間で絞る：</b> from + 開始日/終了日</li>
-              <li><b>反応が多い投稿だけ：</b> いいね最小 / RT最小</li>
-              <li><b>画像/動画だけ：</b> 「画像付きのみ」または「動画付きのみ」</li>
+              <li><b>Filter one account by date:</b> use from + start/end dates</li>
+              <li><b>Only high-engagement posts:</b> set minimum likes / retweets</li>
+              <li><b>Only images or videos:</b> check “Images only” or “Videos only”</li>
             </ul>
           </div>
         </div>
@@ -178,7 +178,7 @@
     </main>
 
     <footer class="footer">
-      <span>※ サーバ送信なし（完全ローカル）</span>
+      <span>※ No server (runs locally)</span>
       <span class="kbd">Ctrl + Enter</span>
     </footer>
   </div>

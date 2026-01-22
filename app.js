@@ -3,9 +3,10 @@
   const $ = (id)=>document.getElementById(id);
 
   const PR_EXCLUDES = [
-    "#PR","#ad","#副業","#案件",
-    "アフィリエイト","紹介コード","DMください",
-    "固定ツイ","固ツイ","プロフ見て"
+   "#ad", "#ads", "#sponsored", "#promo",
+   "sponsored", "promotion", "giveaway",
+   "affiliate", "referral", "use my code",
+   "DM me", "link in bio"
   ];
 
   function splitWords(s){
